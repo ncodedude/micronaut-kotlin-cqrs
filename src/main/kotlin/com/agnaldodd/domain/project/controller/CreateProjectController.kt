@@ -2,8 +2,7 @@ package com.agnaldodd.domain.project.controller
 
 
 import com.agnaldodd.common.application.ApplicationDispatcherInterface
-import com.agnaldodd.domain.project.application.command.CreateProjectCommand
-import io.micronaut.core.annotation.Introspected
+import com.agnaldodd.domain.project.controller.dto.CreateProjectRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
@@ -16,19 +15,11 @@ class CreateProjectController(
 ) {
 
     @Post
-    fun create(@Body project: Project): HttpResponse<Project> {
-        val command = project.toCommand()
+    fun create(@Body createProjectRequest: CreateProjectRequest): HttpResponse<CreateProjectRequest> {
+        val command = createProjectRequest.toCommand()
         this.applicationDispatcher.execute(command)
         return HttpResponse.ok()
     }
 }
 
-@Introspected
-data class Project(
- val name: String,
- val credit: String
-){
-    fun toCommand(): CreateProjectCommand {
-        return CreateProjectCommand(name, credit);
-    }
-}
+

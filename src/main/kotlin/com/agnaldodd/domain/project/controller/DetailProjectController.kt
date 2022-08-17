@@ -1,8 +1,7 @@
 package com.agnaldodd.domain.project.controller
 
 import com.agnaldodd.common.application.ApplicationDispatcherInterface
-import com.agnaldodd.domain.project.application.query.DetailProjectQuery
-import io.micronaut.core.annotation.Introspected
+import com.agnaldodd.domain.project.controller.dto.ProjectQuery
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -17,15 +16,5 @@ class DetailProjectController (private val applicationDispatcher: ApplicationDis
         val query = ProjectQuery(projectId).toQuery()
         var result = this.applicationDispatcher.execute(query)
         return HttpResponse.ok(result)
-    }
-}
-
-
-@Introspected
-data class ProjectQuery(
-    var id: Long
-){
-    fun toQuery(): DetailProjectQuery {
-        return DetailProjectQuery(id);
     }
 }
