@@ -3,8 +3,6 @@ package com.agnaldodd.domain.project.controller
 
 import com.agnaldodd.common.application.ApplicationDispatcherInterface
 import com.agnaldodd.domain.project.application.command.CreateProjectCommand
-import com.agnaldodd.domain.project.application.command.CreateProjectCommandHandler
-import com.agnaldodd.domain.project.infrastructure.configuration.ApplicationDispatcherProjectInjection
 import io.micronaut.core.annotation.Introspected
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
@@ -14,13 +12,8 @@ import io.micronaut.http.annotation.Post
 
 @Controller("/projects")
 class CreateProjectController(
-    private val applicationDispatcher: ApplicationDispatcherInterface,
-    private val injection: ApplicationDispatcherProjectInjection
+    private val applicationDispatcher: ApplicationDispatcherInterface
 ) {
-
-    init {
-        this.injection.registerHandlers()
-    }
 
     @Post
     fun create(@Body project: Project): HttpResponse<Project> {
