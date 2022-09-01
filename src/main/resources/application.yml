@@ -11,7 +11,7 @@ datasources:
 jpa:
   default:
     entity-scan:
-      packages: com.agnaldodd.domain.project.core
+      packages: com.agnaldodd.domain
     properties:
       hibernate:
         hbm2ddl:
