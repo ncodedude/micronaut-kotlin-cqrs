@@ -1,6 +1,6 @@
 package com.agnaldodd.domain.project.controller
 
-import com.agnaldodd.common.application.ApplicationDispatcherInterface
+import com.agnaldodd.common.application.dispatcher.register.ApplicationDispatcherInterface
 import com.agnaldodd.domain.project.controller.dto.UpdateProjectRequest
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.PathVariable

@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.agnaldodd.common.application
+package com.agnaldodd.common.application.dispatcher.register
 
 import com.agnaldodd.common.application.command.ApplicationCommand
 import com.agnaldodd.common.application.command.ApplicationCommandHandler
@@ -9,7 +9,6 @@ import com.agnaldodd.common.application.query.ApplicationQuery
 import com.agnaldodd.common.application.query.ApplicationQueryResolver
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import javax.inject.Singleton
 
 class ApplicationDispatcher() : ApplicationDispatcherInterface {
 

@@ -1,6 +1,6 @@
 package com.agnaldodd.configuration
 
-import com.agnaldodd.common.application.ApplicationDispatcher
+import com.agnaldodd.common.application.dispatcher.register.ApplicationDispatcher
 import com.agnaldodd.domain.project.application.command.CreateProjectCommand
 import com.agnaldodd.domain.project.application.command.CreateProjectCommandHandler
 import com.agnaldodd.domain.project.application.command.UpdateProjectCommand
@@ -21,12 +21,12 @@ class ApplicationDispatcherFactory(private val createProjectCommandHandler: Crea
 
     @Bean
     fun  init() : ApplicationDispatcher {
-        val dispatcher =  ApplicationDispatcher();
+        val dispatcher =  ApplicationDispatcher()
         dispatcher.registerHandlerCommand(CreateProjectCommand::class.simpleName as String, createProjectCommandHandler)
         dispatcher.registerQueryResolver(DetailProjectQuery::class.simpleName as String, resolver)
         dispatcher.registerQueryResolver(ListProjectQuery::class.simpleName as String, listResolver)
         dispatcher.registerHandlerCommand(UpdateProjectCommand::class.simpleName as String,updateProjectCommandHandler)
 
-        return dispatcher;
+        return dispatcher
     }
 }
