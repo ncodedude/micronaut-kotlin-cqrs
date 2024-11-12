@@ -1,6 +1,6 @@
 package com.agnaldodd.domain.files.controller
 
-import com.agnaldodd.common.application.ApplicationDispatcherInterface
+import com.agnaldodd.common.application.dispatcher.register.ApplicationDispatcherInterface
 import com.agnaldodd.domain.files.controller.dto.CreateFileRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
